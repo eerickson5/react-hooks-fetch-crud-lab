@@ -17,7 +17,7 @@ function QuestionItem({ question, onDeleteQuestion, onChangeQuestion }) {
       }
     })
     .then( res => res.json())
-    .then( (data) => onDeleteQuestion(id))
+    .then( () => onDeleteQuestion(id))
   }
 
   function handleSelectChanged(e){
