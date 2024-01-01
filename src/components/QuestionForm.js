@@ -37,7 +37,15 @@ function QuestionForm({onAddQuestion}) {
       })
     })
     .then( res => res.json())
-    .then( data => console.log(data))
+    .then( data => onAddQuestion(data))
+    .then( () => setFormData({
+      prompt: "",
+      answer1: "",
+      answer2: "",
+      answer3: "",
+      answer4: "",
+      correctIndex: 0,
+    }))
   }
 
   return (
