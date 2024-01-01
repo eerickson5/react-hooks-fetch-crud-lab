@@ -21,10 +21,17 @@ function App() {
     setQuestions(questions.filter( ques => (ques.id !== oldQuesId)))
   }
 
+  function handleChangeQuestion(newQues){
+    setQuestions(questions.map( ques => { return ques.id === newQues.id ? newQues : ques}))
+  }
+
   return (
     <main>
       <AdminNavBar onChangePage={setPage} />
-      {page === "Form" ? <QuestionForm onAddQuestion={handleAddQuestion} /> : <QuestionList questions={questions} onDeleteQuestion={handleDeleteQuestion}/>}
+      {page === "Form" ? 
+      <QuestionForm onAddQuestion={handleAddQuestion} /> 
+      : 
+      <QuestionList questions={questions} onDeleteQuestion={handleDeleteQuestion} onChangeQuestion={handleChangeQuestion}/>}
     </main>
   );
 }
